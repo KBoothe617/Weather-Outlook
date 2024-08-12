@@ -93,8 +93,7 @@ const renderCurrentWeather = (currentWeather: any): void => {
     tempEl.textContent = `Temp: ${tempF}°F`;
     windEl.textContent = `Wind: ${windSpeed} MPH`;
     humidityEl.textContent = `Humidity: ${humidity} %`;
-
-  if (todayContainer) {
+  
     todayContainer.innerHTML = '';
     todayContainer.append(heading, tempEl, windEl, humidityEl);
   }
