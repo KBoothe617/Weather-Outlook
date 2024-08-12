@@ -81,11 +81,12 @@ const renderCurrentWeather = (currentWeather: any): void => {
     currentWeather;
 
   // convert the following to typescript
-  heading.textContent = `${city} (${date})`;
-  weatherIcon.setAttribute(
-    'src',
-    `https://openweathermap.org/img/w/${icon}.png`
-  );
+  if (heading && weatherIcon && tempEl && windEl && humidityEl && todayContainer) {
+    heading.textContent = `${city} (${date})`;
+    weatherIcon.setAttribute(
+      'src',
+      `https://openweathermap.org/img/w/${icon}.png`
+    );
   weatherIcon.setAttribute('alt', iconDescription);
   weatherIcon.setAttribute('class', 'weather-img');
   heading.append(weatherIcon);
