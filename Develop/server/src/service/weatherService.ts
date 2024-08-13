@@ -61,9 +61,16 @@ class WeatherService {
     return `${this.baseURL}weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${this.apiKey}&units=imperial`;
   }
   // TODO: Create fetchAndDestructureLocationData method
-  // private async fetchAndDestructureLocationData() {}
+  private async fetchAndDestructureLocationData(query: string): Promise<Coordinates> {
+    const locationData = await this.fetchLocationData(query);
+    return this.destructureLocationData(locationData);
+  }
   // TODO: Create fetchWeatherData method
-  // private async fetchWeatherData(coordinates: Coordinates) {}
+  private async fetchWeatherData(coordinates: Coordinates): Promise<any> {
+    const response = await fetch(this.buildWeatherQuery(coordinates));
+    const data = await response.json();
+    return data;
+  }
   // TODO: Build parseCurrentWeather method
   // private parseCurrentWeather(response: any) {}
   // TODO: Complete buildForecastArray method
