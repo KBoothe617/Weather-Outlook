@@ -84,7 +84,17 @@ class WeatherService {
     );
   }
   // TODO: Complete buildForecastArray method
-  // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
+  private buildForecastArray(currentWeather: Weather, weatherData: any[]): Weather[] {
+    return weatherData.map((data: any) => new Weather(
+      currentWeather.city,
+      new Date(data.dt * 1000).toLocaleDateString(),
+      data.weather[0].icon,
+      data.weather[0].description,
+      data.main.temp,
+      data.wind.speed,
+      data.main.humidity
+    ));
+  }
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
 }
