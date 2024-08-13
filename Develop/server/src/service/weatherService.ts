@@ -40,7 +40,11 @@ class WeatherService {
   private baseURL: string = 'https://api.openweathermap.org/data/2.5/';
   private apiKey: string = process.env.API_KEY || '';
   // TODO: Create fetchLocationData method
-  // private async fetchLocationData(query: string) {}
+  private async fetchLocationData(query: string): Promise<Coordinates> {
+    const response = await fetch(`${this.baseURL}geo/1.0/direct?q=${query}&appid=${this.apiKey}`);
+    const data = await response.json();
+    return this.destructureLocationData(data[0]);
+  }
   // TODO: Create destructureLocationData method
   // private destructureLocationData(locationData: Coordinates): Coordinates {}
   // TODO: Create buildGeocodeQuery method
