@@ -1,3 +1,8 @@
+import { promises as fs } from 'fs';
+import path from 'path';
+
+const historyFilePath = path.join(__dirname, 'searchHistory.json');
+
 // TODO: Define a City class with name and id properties
 
 // TODO: Complete the HistoryService class
