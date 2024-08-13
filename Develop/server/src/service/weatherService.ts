@@ -37,6 +37,8 @@ class Weather {
 // TODO: Complete the WeatherService class
 class WeatherService {
   // TODO: Define the baseURL, API key, and city name properties
+  private baseURL: string = 'https://api.openweathermap.org/data/2.5/';
+  private apiKey: string = process.env.API_KEY || '';
   // TODO: Create fetchLocationData method
   // private async fetchLocationData(query: string) {}
   // TODO: Create destructureLocationData method
