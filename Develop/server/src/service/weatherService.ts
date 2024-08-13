@@ -46,7 +46,12 @@ class WeatherService {
     return this.destructureLocationData(data[0]);
   }
   // TODO: Create destructureLocationData method
-  // private destructureLocationData(locationData: Coordinates): Coordinates {}
+  private destructureLocationData(locationData: any): Coordinates {
+    return {
+      lat: locationData.lat,
+      lon: locationData.lon,
+    };
+  }
   // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
   // TODO: Create buildWeatherQuery method
