@@ -37,12 +37,14 @@ class Weather {
 // TODO: Complete the WeatherService class
 class WeatherService {
   // TODO: Define the baseURL, API key, and city name properties
-  private baseURL: string = 'https://api.openweathermap.org/data/2.5/';
+  private baseURL: string = 'https://api.openweathermap.org/';
   private apiKey: string = process.env.API_KEY || '';
   // TODO: Create fetchLocationData method
   private async fetchLocationData(query: string): Promise<Coordinates> {
+    console.log(query);
     const response = await fetch(`${this.baseURL}geo/1.0/direct?q=${query}&appid=${this.apiKey}`);
     const data = await response.json();
+    console.log(data);
     return this.destructureLocationData(data[0]);
   }
   // TODO: Create destructureLocationData method
@@ -52,13 +54,9 @@ class WeatherService {
       lon: locationData.lon,
     };
   }
-  // TODO: Create buildGeocodeQuery method
-  private buildGeocodeQuery(query: string): string {
-    return `${this.baseURL}geo/1.0/direct?q=${query}&appid=${this.apiKey}`;
-  }
   // TODO: Create buildWeatherQuery method
   private buildWeatherQuery(coordinates: Coordinates): string {
-    return `${this.baseURL}weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${this.apiKey}&units=imperial`;
+    return `${this.baseURL}/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${this.apiKey}&units=imperial`;
   }
   // TODO: Create fetchAndDestructureLocationData method
   private async fetchAndDestructureLocationData(query: string): Promise<Coordinates> {
@@ -101,6 +99,7 @@ class WeatherService {
     const weatherData = await this.fetchWeatherData(coordinates);
     const currentWeather = this.parseCurrentWeather(weatherData);
     const forecast = this.buildForecastArray(currentWeather, weatherData.list);
+    console.log(forecast);
     return currentWeather;
   }
 }
