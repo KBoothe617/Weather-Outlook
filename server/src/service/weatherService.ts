@@ -5,6 +5,9 @@ dotenv.config();
 interface Coordinates {
   lat: number;
   lon: number;
+  name: string;
+  country: String;
+  State: string;
 }
 // TODO: Define a class for the Weather object
 class Weather {
