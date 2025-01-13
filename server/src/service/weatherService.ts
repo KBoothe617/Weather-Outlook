@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import dayjs, { type Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 dotenv.config();
 
 // TODO: Define an interface for the Coordinates object
