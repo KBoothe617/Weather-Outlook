@@ -1,4 +1,7 @@
 # Weather Outlook
+
+URL https://weather-outlook-rd06.onrender.com
+
 ![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue)
 
 - [Description](#description)
@@ -13,6 +16,7 @@
 
 Weather outlook program that shows the predicted weather for multiple cities.
 
+![code snipet](image-1.png)
 ---
 
 ## Installation
@@ -24,6 +28,8 @@ npm install and npx tsc
 ## Usage
 
 Used to show predicted weather to help plan for activies.
+
+![deployed site](image.png)
 
 ---
 
